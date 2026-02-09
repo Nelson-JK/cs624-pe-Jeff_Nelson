@@ -8,7 +8,6 @@ After entering the todo task, the 'Submit' button press triggers the addTodo fun
 # Output
 The output is the list of todo items entered by the user seen on the screen of the device using the app. The entered tasks are seen on the screen in the order entered. The text input box is cleared after each task entry and the task is seen below the text input box. Real-time display of the keystrokes is shown in terminal. 
 
-## Screenshots
+# Screenshots
+Please see in Screenshots file 
 
-(screenshots/Logging Screenshot.png)
-(screenshots/ToDos Screenshot PE03.jpeg)
