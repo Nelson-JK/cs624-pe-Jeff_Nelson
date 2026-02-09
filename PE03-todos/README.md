@@ -1,50 +1,10 @@
-# Welcome to your Expo app 👋
+# Input
+The input stage of this project involved the Textinput component to receive input from the user of the app, and in this case it was a list of 'to do' items. The keyboard entries trigger the inputChange function which updates the information 
+stored in state in the form of the inputValue. Logging provided a record of each keystroke in the todo list entries. 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Process
+After entering the todo task, the 'Submit' button press triggers the addTodo function. An object is created from the entry, and the spread operator adds the new todo entry into the todo array. The state is updated using setState to log the entry in the terminal output showing the keystrokes. 
 
-## Get started
+# Output
+The output is the list of todo items entered by the user seen on the screen of the device using the app. The entered tasks are seen on the screen in the order entered. The text input box is cleared after each task entry and the task is seen below the text input box. Real-time display of the keystrokes is shown in terminal. 
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
