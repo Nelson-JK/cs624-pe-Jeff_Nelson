@@ -1,17 +1,33 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View, Text } from 'react-native';
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.cardContainer}>
+
           <View style={styles.cardImageContainer}>
             <Image
               style={styles.cardImage}
               source={require('../assets/images/user.png')}
             />
           </View>
+
+          <Text style={styles.name}>
+            Jeff Nelson
+          </Text>
+
+          <Text style={styles.occupation}>
+            React Native Developer
+          </Text>
+
+          <Text style={styles.description}>
+            Jeff is a software developer focused on building mobile applications
+            using React Native. He enjoys creating clean user interfaces and
+            exploring modern styling techniques.
+          </Text>
+
         </View>
       </View>
     );
@@ -34,9 +50,9 @@ const styles = StyleSheet.create({
     width: 300,
     height: 400,
 
-    // Position card like screenshot
     marginTop: 120,
     alignSelf: 'center',
+    alignItems: 'center',
   },
 
   cardImageContainer: {
@@ -47,15 +63,42 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 60,
 
-    // KEY styling fixes from lab
-    alignSelf: 'center',   // horizontal center
-    marginTop: -60,        // overlap effect
-    padding: 10,           // space inside circle
+    alignSelf: 'center',
+    marginTop: -60,
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   cardImage: {
     width: 80,
     height: 80,
-    alignSelf: 'center',   // center image inside circle
+  },
+
+  /* text stylingcd..  */
+
+  name: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginTop: 20,
+    textAlign: 'center',
+  },
+
+  occupation: {
+    fontSize: 16,
+    color: 'white',
+    marginTop: 5,
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+
+  description: {
+    fontSize: 14,
+    backgroundColor: 'white',
+    marginHorizontal: 20,
+    padding: 10,
+    borderRadius: 10,
+    textAlign: 'center',
+    lineHeight: 20,
   },
 });
