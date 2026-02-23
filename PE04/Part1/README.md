@@ -1,50 +1,21 @@
-# Welcome to your Expo app 👋
+# PE04 Input Process Output Summary 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A profile card was created with text, background color, and other styling features such as rounded corners and centering of the image.
 
-## Get started
+## Input
+This project did not require user input, but instead provided a Profile Card and in this example showed the user image along with a title
+and description of skill set. These elements were hardcoded in the application. 
 
-1. Install dependencies
+## Process
 
-   ```bash
-   npm install
-   ```
+ReactNative was used to create the card using components and styling features. The view container shows the image, which in this case was an 
+image chosed from the Google library of images and downloaded and as .png image. The text was stylized using components such as font size, font weight, color, 
+centering, and spacing (from edges and other elements). 
 
-2. Start the app
+## Output
+The output is the profile card with the styling features enabled.  The learning from this program was to become acquainted with styling features and to 
+provide the opportunity for creativity in the coding. The text was informative in promoting the capability of the programmer, but could be any text desired. The use of 
+color, fonts, spacing, and others help to provie an appealing and interesting profile card. 
 
-   ```bash
-   npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
