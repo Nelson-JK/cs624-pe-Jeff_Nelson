@@ -1,50 +1,11 @@
-# Welcome to your Expo app 👋
+CS624 PE05 Input Output Process 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Input
+Information is entered by the user on the device, which will be the country and it's currency. For example, AddCountry tab initiates this process. TextInput is the ReactNative function that provides this feature. Once the information is entered, it is saved in the addCountry function. There are additional entry screens for adding cities or countries, and tabs to see what cities or countries have already been added and are saved in memory. 
 
-## Get started
+**Process
+The information entered by the user such as country and currency are saved in the App.js function. New countries entered are added into the AddCountry array. The same happens if new cities are entered and they are saved in the AddCity array. Countries is the starting screen in this version of the app being created. If no countries have been entered, then a message is seen on the center screen stating no countries are saved. Keyboard.dismiss was used so the keyboard closes making it a better exprience for the user so they don't have to constantly tab outside the keypad, although that is not a significant thing for users to do if necessary. 
 
-1. Install dependencies
+**Output
+The countries entered are saved and displayed on the screen, listing each country and its currency. Once entered, the countries and currencies are shown on the screen. The tabs at the bottom of the screen allow users to enter new countries and currencies, or cities. A user can also see the countries listed that have been entered as long as the app is active.  Once deactivated, the county list is cleared. 
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.

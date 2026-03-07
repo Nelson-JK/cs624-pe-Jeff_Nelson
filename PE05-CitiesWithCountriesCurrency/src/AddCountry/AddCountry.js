@@ -9,50 +9,49 @@ import {
   StyleSheet,
 } from 'react-native';
 
-class AddCity extends Component {
+class AddCountry extends Component {
   state = {
-    city: '',
     country: '',
+    currency: '',
   };
 
   submit = () => {
-    const { city, country } = this.state;
-    const { addCity, navigation } = this.props;
+    const { country, currency } = this.state;
+    const { addCountry, navigation } = this.props;
 
-    if (!city.trim() || !country.trim()) {
+    if (!country.trim() || !currency.trim()) {
       return;
     }
 
-    addCity({
-      name: city,
-      country,
-      locations: [],
+    addCountry({
+      name: country,
+      currency,
     });
 
     this.setState({
-      city: '',
       country: '',
+      currency: '',
     });
 
     Keyboard.dismiss();
-    navigation.navigate('Cities');
+    navigation.navigate('Countries');
   };
 
   render() {
     return (
       <View style={styles.container}>
         <TextInput
-          placeholder="Enter city name"
-          value={this.state.city}
-          onChangeText={(city) => this.setState({ city })}
+          placeholder="Enter country name"
+          value={this.state.country}
+          onChangeText={(country) => this.setState({ country })}
           style={styles.input}
           returnKeyType="done"
         />
 
         <TextInput
-          placeholder="Enter country name"
-          value={this.state.country}
-          onChangeText={(country) => this.setState({ country })}
+          placeholder="Enter currency"
+          value={this.state.currency}
+          onChangeText={(currency) => this.setState({ currency })}
           style={styles.input}
           returnKeyType="done"
         />
@@ -65,8 +64,8 @@ class AddCity extends Component {
   }
 }
 
-AddCity.propTypes = {
-  addCity: PropTypes.func.isRequired,
+AddCountry.propTypes = {
+  addCountry: PropTypes.func.isRequired,
   navigation: PropTypes.object.isRequired,
 };
 
@@ -96,4 +95,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddCity;
+export default AddCountry;
