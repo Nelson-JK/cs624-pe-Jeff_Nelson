@@ -8,6 +8,7 @@ import Cities from './src/Cities/Cities';
 import City from './src/Cities/City';
 import AddCity from './src/AddCity/AddCity';
 import Countries from './src/Countries/Countries';
+import Country from './src/Countries/Country';
 import AddCountry from './src/AddCountry/AddCountry';
 import { colors } from './src/theme';
 
@@ -28,7 +29,7 @@ function CitiesStackScreen({ cities }) {
         headerTintColor: '#fff',
       }}
     >
-      <Stack.Screen name="Cities">
+      <Stack.Screen name="Cities" options={{ title: 'Cities' }}>
         {(props) => <Cities {...props} cities={cities} />}
       </Stack.Screen>
 
@@ -43,7 +44,7 @@ function CitiesStackScreen({ cities }) {
   );
 }
 
-function CountriesStackScreen({ countries }) {
+function CountriesStackScreen({ countries, updateCurrency }) {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -53,9 +54,23 @@ function CountriesStackScreen({ countries }) {
         headerTintColor: '#fff',
       }}
     >
-      <Stack.Screen name="Countries">
-        {(props) => <Countries {...props} countries={countries} />}
+      <Stack.Screen name="Countries" options={{ title: 'Countries' }}>
+        {(props) => (
+          <Countries
+            {...props}
+            countries={countries}
+            updateCurrency={updateCurrency}
+          />
+        )}
       </Stack.Screen>
+
+      <Stack.Screen
+        name="Country"
+        component={Country}
+        options={({ route }) => ({
+          title: route.params?.name || 'Country',
+        })}
+      />
     </Stack.Navigator>
   );
 }
@@ -98,35 +113,30 @@ export default class App extends Component {
     });
   };
 
+  updateCurrency = (countryName, newCurrency) => {
+    this.setState((currentState) => ({
+      countries: currentState.countries.map((country) =>
+        country.name === countryName
+          ? { ...country, currency: newCurrency }
+          : country
+      ),
+    }));
+  };
+
   render() {
     return (
       <NavigationContainer>
         <Tab.Navigator
-          initialRouteName="Countries"
+          initialRouteName="CitiesNav"
           screenOptions={{
-            headerShown: false,
+            headerShown: true,
             tabBarActiveTintColor: colors.primary,
           }}
         >
-          <Tab.Screen name="Countries">
-            {(props) => (
-              <CountriesStackScreen
-                {...props}
-                countries={this.state.countries}
-              />
-            )}
-          </Tab.Screen>
-
-          <Tab.Screen name="AddCountry">
-            {(props) => (
-              <AddCountry
-                {...props}
-                addCountry={this.addCountry}
-              />
-            )}
-          </Tab.Screen>
-
-          <Tab.Screen name="Cities">
+          <Tab.Screen
+            name="CitiesNav"
+            options={{ title: 'CitiesNav' }}
+          >
             {(props) => (
               <CitiesStackScreen
                 {...props}
@@ -141,6 +151,25 @@ export default class App extends Component {
                 {...props}
                 addCity={this.addCity}
                 countries={this.state.countries}
+              />
+            )}
+          </Tab.Screen>
+
+          <Tab.Screen name="CountriesNav">
+            {(props) => (
+              <CountriesStackScreen
+                {...props}
+                countries={this.state.countries}
+                updateCurrency={this.updateCurrency}
+              />
+            )}
+          </Tab.Screen>
+
+          <Tab.Screen name="AddCountry">
+            {(props) => (
+              <AddCountry
+                {...props}
+                addCountry={this.addCountry}
               />
             )}
           </Tab.Screen>

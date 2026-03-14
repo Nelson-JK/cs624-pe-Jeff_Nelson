@@ -1,93 +1,79 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import {
-  View,
+  KeyboardAvoidingView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
+  View,
   Keyboard,
-  StyleSheet,
 } from 'react-native';
 
-class AddCountry extends Component {
-  state = {
-    country: '',
-    currency: '',
-  };
+import { colors } from '../theme';
 
-  submit = () => {
-    const { country, currency } = this.state;
-    const { addCountry, navigation } = this.props;
+const AddCountry = ({ addCountry }) => {
+  const [name, setName] = useState('');
+  const [currency, setCurrency] = useState('');
 
-    if (!country.trim() || !currency.trim()) {
-      return;
+  const handleSubmit = () => {
+    if (name && currency) {
+      addCountry({ name, currency });
+      setName('');
+      setCurrency('');
+      Keyboard.dismiss();
     }
-
-    addCountry({
-      name: country,
-      currency,
-    });
-
-    this.setState({
-      country: '',
-      currency: '',
-    });
-
-    Keyboard.dismiss();
-    navigation.navigate('Countries');
   };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <TextInput
-          placeholder="Enter country name"
-          value={this.state.country}
-          onChangeText={(country) => this.setState({ country })}
-          style={styles.input}
-          returnKeyType="done"
-        />
+  return (
+    <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <Text style={styles.title}>Countries</Text>
 
-        <TextInput
-          placeholder="Enter currency"
-          value={this.state.currency}
-          onChangeText={(currency) => this.setState({ currency })}
-          style={styles.input}
-          returnKeyType="done"
-        />
+      <TextInput
+        placeholder="Country name"
+        style={styles.input}
+        value={name}
+        onChangeText={setName}
+      />
 
-        <TouchableOpacity onPress={this.submit} style={styles.button}>
-          <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
+      <TextInput
+        placeholder="Currency"
+        style={styles.input}
+        value={currency}
+        onChangeText={setCurrency}
+      />
 
-AddCountry.propTypes = {
-  addCountry: PropTypes.func.isRequired,
-  navigation: PropTypes.object.isRequired,
+      <TouchableOpacity onPress={handleSubmit}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>Add Country</Text>
+        </View>
+      </TouchableOpacity>
+    </KeyboardAvoidingView>
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: colors.primary,
     padding: 20,
+    justifyContent: 'flex-start',
+  },
+  title: {
+    color: '#fff',
+    fontSize: 30,
+    textAlign: 'center',
+    marginBottom: 20,
   },
   input: {
-    height: 50,
-    borderWidth: 1,
-    borderColor: '#d4d4d4',
+    backgroundColor: '#fff',
+    height: 40,
     marginBottom: 20,
-    paddingHorizontal: 10,
-    borderRadius: 5,
+    paddingHorizontal: 8,
   },
   button: {
-    backgroundColor: '#3385ff',
-    padding: 15,
+    backgroundColor: '#666',
+    paddingVertical: 12,
     alignItems: 'center',
-    borderRadius: 5,
   },
   buttonText: {
     color: '#fff',
