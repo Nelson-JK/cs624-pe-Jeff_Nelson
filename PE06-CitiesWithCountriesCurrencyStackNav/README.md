@@ -1,11 +1,11 @@
-CS624 PE05 Input Output Process 
+CS624 PE06 Input Output Process 
 
 **Input
-Information is entered by the user on the device, which will be the country and it's currency. For example, AddCountry tab initiates this process. TextInput is the ReactNative function that provides this feature. Once the information is entered, it is saved in the addCountry function. There are additional entry screens for adding cities or countries, and tabs to see what cities or countries have already been added and are saved in memory. 
+Input for the app is provided by the user who adds countries and the currencies associated with that country in the input fields. Additional currency info can be added on the country screen using the input fields of currency name and other info. 
 
 **Process
-The information entered by the user such as country and currency are saved in the App.js function. New countries entered are added into the AddCountry array. The same happens if new cities are entered and they are saved in the AddCity array. Countries is the starting screen in this version of the app being created. If no countries have been entered, then a message is seen on the center screen stating no countries are saved. Keyboard.dismiss was used so the keyboard closes making it a better exprience for the user so they don't have to constantly tab outside the keypad, although that is not a significant thing for users to do if necessary. 
+The process involves processing the input from the user using components from ReactNative, ReactNavigation, and state management so the entered data is not lost while the add is active. The app using Stack Navigation to move between countries and the countries details screens. When a new currency is entered, the update is provided by the state component and the new currency details are stored and displayed. 
 
 **Output
-The countries entered are saved and displayed on the screen, listing each country and its currency. Once entered, the countries and currencies are shown on the screen. The tabs at the bottom of the screen allow users to enter new countries and currencies, or cities. A user can also see the countries listed that have been entered as long as the app is active.  Once deactivated, the county list is cleared. 
+The output is what is displayed on the device screen, enabled by the React Native components. The display shows the list of countries entered by the user and the associated currency for that country. This is seen in the countries stack display. The display is updated immediately after the user enters the country and currency details from the UI. 
 
